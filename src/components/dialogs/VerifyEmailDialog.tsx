@@ -164,7 +164,6 @@ export function Inner({
       style={web([
         gtMobile ? {width: 'auto', maxWidth: 400, minWidth: 200} : a.w_full,
       ])}>
-      <Dialog.Close />
       <View style={[a.gap_xl]}>
         {currentStep === 'Reminder' && (
           <View
@@ -172,7 +171,9 @@ export function Inner({
               a.rounded_sm,
               a.align_center,
               a.justify_center,
-              {height: 150, backgroundColor: t.palette.primary_500},
+              {height: 150},
+              t.atoms.bg_contrast_100,
+              web(a.mt_2xl),
             ]}>
             <EnvelopeIcon width={64} fill="white" />
           </View>
@@ -274,7 +275,7 @@ export function Inner({
               <Button
                 label={_(msg`Maybe layer`)}
                 accessibilityHint={_(msg`Snooze reminder`)}
-                variant="solid"
+                variant="ghost"
                 color="secondary"
                 size="large"
                 disabled={isProcessing}
@@ -357,6 +358,7 @@ export function Inner({
           ) : null}
         </View>
       </View>
+      <Dialog.Close />
     </Dialog.ScrollableInner>
   )
 }
